@@ -24,6 +24,14 @@ router.post('/user',async (req, res) => {
     });
     return;
   }
+
+  if(!valid.checkPassword(params.password)){
+    res.status(300).json({
+      msn: "La contraseña debería empezar con una letra mayúscula, y tener al menos 6 caracteres"
+    });
+    return;
+  }
+
   var user = new USER(params);
   var result = await user.save();
   res.status(200).json(result);

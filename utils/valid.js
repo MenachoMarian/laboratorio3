@@ -12,6 +12,14 @@ var valid = {
       return false;
     }
     return true;
+  },
+
+  checkPassword: function(password){
+    var contra = /^\w{0,}[A-Z]+\w{4,}[A-Z0-9a-z]$/g
+    if(password.match(contra) == null){
+      return false;
+    }
+    return true;
   }
 };
 
